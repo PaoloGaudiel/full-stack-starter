@@ -1,5 +1,389 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
+/* Universal */
+
+:root {
+  --blue: #c4ecff;
+  --bluetransparent: #c4ecff80;
+  --indigo: #304C89;
+  --lightindigo: #446cc3;
+  --pink: #EFC3E6;
+  /* --pink: #FFC1CF; */
+  --lightorange: #F39B6D;
+  --darkred: #910217;
+  --orange: #FC440F;
+  --white: #FFFFFF;
+  --black: #000000;
+  --blacktransparent: #00000080;
+  --lightgray: #efefef;
+  --lightgraytransparent: #9d9ab880;
+  --darkgray: #82b6d6;
+  --clear: #00000000;
+  --cardshadow: rgba(0,0,0,0.1);
+}
+
 body {
-  padding-top: 5rem;
+  background-image: url("photos/kpopcollage.jpg"), linear-gradient(var(--blue),var(--blue));
+  background-blend-mode: overlay;
+  font-family: DM Sans, Arial, Helvetica, sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+}
+
+/* MAIN NAVIGATION BAR */
+.topnav-container {
+  background-image: linear-gradient(var(--blue), var(--clear));
+  position: sticky;
+  top: 0rem;
+  display: flex;
+}
+
+.topnav {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  font-family: Outfit, Arial, Helvetica, sans-serif;
+
+}
+
+.topnav-item.burger-item {
+  display: none;
+}
+
+.topnav-item:first-child {
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.topnav-item:last-child {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  grid-column: span 2;
+}
+
+.topnav-item {
+  background-color: var(--indigo);
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+  color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 0.6rem;
+  margin: 0 0.15rem;
+  transition: background-color 250ms ease-out 100ms
+}
+
+.topnav-item:first-child:hover {
+  background-color: var(--indigo);
+  cursor: auto;
+}
+
+.topnav-item:hover {
+  background-color: var(--lightindigo);
+  cursor: pointer;
+}
+
+.search-bar {
+  border-radius: 10px;
+  border-style: none;
+  padding: 0.35rem;
+  width: 80%;
+}
+
+
+
+/* MAIN CARDS */
+
+.main-card {
+  margin: 1.5rem auto;
+  grid-template-columns: repeat(6, 1fr);
+  display: grid;
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+  max-width: 1100px;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* ABOUT CARDS */
+
+.about.main-card {
+  background-color: var(--darkgray);
+}
+
+.about .card-item {
+  background-color: var(--white);
+}
+
+
+/* POPULAR CARDS */
+
+.popular.main-card {
+  background-color: var(--lightorange);
+}
+
+.popular .card-item {
+  background-color: var(--white);
+}
+
+/* GIRLGROUP CARDS */
+
+.girlgroup.main-card {
+  background-color: var(--pink);
+}
+
+.girlgroup .card-item {
+  background-color: var(--white);
+}
+
+
+/* BOYGROUP CARDS */
+
+.boygroup.main-card {
+  background-color: var(--lightgray);
+}
+
+.boygroup .card-item {
+  background-color: var(--white);
+}
+
+/* MAIN CARD ITEMS */
+
+/* .card-item:first-child {
+  margin-left: 2rem;
+
+}
+
+.card-item:last-child {
+  margin-right: 2rem;
+} */
+
+
+.card-item {
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+}
+
+.card-item-span-auto {
+  grid-column: auto;
+}
+
+.card-item-span-1 {
+  grid-column: span 1;
+}
+
+.card-item-span-2 {
+  grid-column: span 2;
+}
+
+.card-item-span-3 {
+  grid-column: span 3;
+}
+
+.card-item-span-4{
+  grid-column: span 4;
+}
+
+.card-item-span-5{
+  grid-column: span 5;
+}
+
+.card-item-span-6 {
+  grid-column: span 6;
+}
+
+/* IDOL CARD ITEMS */
+
+.idol-card {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: local;
+}
+
+/* .newjeans {
+  background-image: url("../assets/photos/newjeansgroupphoto.jpg"), linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5));
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.idol-card-item {
+  display: grid;
+  padding: 1rem;
+  align-items: center;
+  border-radius: 10px;
+  background-image: linear-gradient(var(--lightgraytransparent),var(--lightgraytransparent));
+  background-blend-mode: overlay;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+}
+
+.idol-card-id {
+  text-align: center;
+}
+
+.idol-card-photo .idol-photo {
+  margin: auto;
+  width: 75%;
+  border-radius: 50%;
+  border: 0.25rem solid black;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.idol-card-name {
+  font-family: Outfit, Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8));
+  background-blend-mode: overlay;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+}
+
+.idol-card-facts {
+  text-align: center;
+}
+
+.fact-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+}
+
+.fact-list-item {
+  padding: 1rem;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.8),rgba(255, 255, 255, 0.8));
+  background-blend-mode: overlay;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px var(--cardshadow);
+}
+
+.fact-list .list-subtitle {
+  font-size: large;
+  margin: 0;
+}
+
+.fact-list p {
+  margin: 0;
+}
+/* Test Classes */
+
+.addborder {
+  border-style: solid;
+  border-color: black;
+  border-radius: 15px;
+}
+
+/* BACKGROUND COLOR CLASS */
+
+.blue {
+  background-color: var(--blue);
+}
+.indigo {
+  background-color: var(--indigo);
+}
+.pink {
+  background-color: var(--pink);
+}
+.orange {
+  background-color: var(--orange);
+}
+.green {
+  background-color: var(--green);
+}
+.white {
+  background-color: var(--white);
+}
+
+/* RESPONSIVE */
+
+@media only screen and (min-width: 0px) and (max-width: 699px) {
+  /* For Phones: */
+
+  .topnav {
+      grid-template-columns: repeat(6, 1fr);
+      max-width: 400px;
+      gap: 0.4rem;
+      width: 100%;
+  }
+
+
+  .topnav-item.burger-item {
+      display: flex;
+      grid-column: span 1;
+      padding: 1rem;
+  }
+
+  .topnav-item.burger-item:active {
+      background-color: var(--lightindigo);
+  }
+  
+  .main-card, .idol-card {
+      grid-template-columns: 1fr;
+      max-width: 375px;
+      gap: 1.5rem;
+  }
+
+  .topnav-item {
+      grid-column: span 1;
+  }
+  
+  .card-item, .idol-card-item {
+      grid-column: span 2;
+      
+  }
+
+  .topnav-item:active {
+      background-color: var(--lightindigo);
+  }
+  .topnav-item:first-child {
+      grid-column: span 5;
+  }
+
+  .topnav-item:last-child {
+      grid-column: span 3;
+  }
+
+  .topnav-item.card-item-span-1 {
+      display: none;
+  }
+
+  .topnav-item.responsive {
+      display: flex;
+  }
+
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1100px) {
+  /* For Tablets: */
+
+  .topnav {
+      max-width: 950px;
+  }
+  
+  .main-card, .idol-card {
+      max-width: 850px;
+
+  }
+
 }
