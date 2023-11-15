@@ -7,14 +7,15 @@ import Item from './Item';
 
 
 function Home() {
-  const url = 'https://api.airtable.com/v0/appUxSybGA38lbH30/Idols';
-  const token = 'pat8JUooC1dwj8jXu.7165b80ece482ca97838855878749eb5c73c1510cf78a7591cad4db1fe123606';
+  // const url = 'https://api.airtable.com/v0/appUxSybGA38lbH30/Idols';
+  // const token = 'pat8JUooC1dwj8jXu.7165b80ece482ca97838855878749eb5c73c1510cf78a7591cad4db1fe123606';
   const [data, setData] = useState();
 
   useEffect(() => {
-    fetch(url, {
-      headers: { Authorization: `Bearer ${token}`}
-    })
+    // fetch(url, {
+    //   headers: { Authorization: `Bearer ${token}`}
+    // })
+    fetch('/api/idols')
       .then((response) => response.json())
       .then((data) => setData(data))
   }, []);
@@ -85,11 +86,11 @@ function Home() {
 
         <div className="idol-display main-card" id="idoldisplay">
           
-          {data?.records.map((record) =>
+          {data?.map((record) =>
             <Item
               key = {record.id}
               id = {record.id}
-              fields = {record.fields}
+              fields = {record}
             ></Item>)}
         </div>
 

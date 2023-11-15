@@ -5,12 +5,12 @@ function Item( {id, fields} ) {
     <div className="idol-card">
             <div className="idol-card-id idol-card-item card-item-span-2">
                 <div className="idol-card-photo">
-                    <img className="idol-photo" src={fields.portrait} alt={fields["Legal Name"]}/>
+                    <img className="idol-photo" src={fields.Portrait[0].url} alt={fields["Legal Name"]}/>
                 </div>
                 <Link to={`./detail/${id}`}>
                   <div className="idol-card-name">
-                    <h1 className="idol-name">{fields.stageName}</h1>
-                    <h2 className="idol-group">{fields.groupName}</h2>
+                    <h1 className="idol-name">{fields["Stage Name"]}</h1>
+                    <h2 className="idol-group">{fields["Group Name"]}</h2>
                   </div>
                 </Link>
             </div>
@@ -19,15 +19,15 @@ function Item( {id, fields} ) {
                 <ul className="fact-list">
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">Birth Name</h4>
-                        <p>{fields.legalName}</p>
+                        <p>{fields["Legal Name"]}</p>
                     </li>
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">Nationality</h4>
-                        <p>{fields.nationality}</p>
+                        <p>{fields["Nationality"]}</p>
                     </li>
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">Birthday</h4>
-                        <p>{fields.birthday}</p>
+                        <p>{fields["Birthday"]}</p>
                     </li>
                   </ul>
             </div>
@@ -36,15 +36,15 @@ function Item( {id, fields} ) {
                 <ul className="fact-list">
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">Height</h4>
-                        <p>{fields.height}</p>
+                        <p>{fields["Height"]}</p>
                     </li>
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">MBTI</h4>
-                        <p>{fields.mbti}</p>
+                        <p>{fields["MBTI"]}</p>
                     </li>
                     <li className="fact-list-item">
                         <h4 className="list-subtitle">Representative Emoji</h4>
-                        <p>{fields.repEmoji}</p>
+                        <p>{fields["Representative Emoji"]}</p>
                     </li>
                   </ul>
             </div>
