@@ -14,6 +14,7 @@ import PasswordsRoutes from './Passwords/PasswordsRoutes';
 import Register from './Register';
 import UsersRoutes from './Users/UsersRoutes';
 
+import IdolForm from './IdolForm';
 import Detail from './Detail';
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
             <AppRedirects>
               <Routes>
                 <Route path="/" element={<Home />} />
-
+                <Route path="/idols/new" element={<IdolForm />} />
+                <Route path="/idols/:id/edit" element={<IdolForm />} />
                 <Route path="/detail/:id" element={<Detail />} />
 
                 <Route path="/login" element={<Login />} />

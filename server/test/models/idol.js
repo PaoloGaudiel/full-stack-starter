@@ -37,8 +37,6 @@ describe('models.Idol', () => {
     assert.deepStrictEqual(record.height, 'Height');
     assert.deepStrictEqual(record.mbti, 'MBTI');
     assert.deepStrictEqual(record.repEmoji,'EMOJI');
-    assert.deepStrictEqual(record.portrait, 'Portrait URL');
-    assert.deepStrictEqual(record.groupPicture, 'Group Picture URL');
 
   });
 

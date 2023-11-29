@@ -10,9 +10,7 @@
             "birthday": "Month, Day 1000",
             "height": "100",
             "mbti": "1000",
-            "repEmoji": "EMOJI",
-            "portrait": "Portrait URL",
-            "groupPicture": "Group Picture URL"
+            "repEmoji": "EMOJI"
         }
     },
     {
@@ -26,9 +24,7 @@
             "birthday": "Month, Day 2000",
             "height": "200",
             "mbti": "2000",
-            "repEmoji": "EMOJI",
-            "portrait": "Portrait URL",
-            "groupPicture": "Group Picture URL"
+            "repEmoji": "EMOJI"
         }
     }
 ]

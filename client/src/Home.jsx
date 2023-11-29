@@ -1,14 +1,18 @@
 import { Helmet } from 'react-helmet-async';
 import { useStaticContext } from './StaticContext';
 
-import { useEffect, useState } from 'react';
+import { useAuthContext } from './AuthContext';
 
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Item from './Item';
 
 
 function Home() {
   // const url = 'https://api.airtable.com/v0/appUxSybGA38lbH30/Idols';
   // const token = 'pat8JUooC1dwj8jXu.7165b80ece482ca97838855878749eb5c73c1510cf78a7591cad4db1fe123606';
+  
+  const { user } = useAuthContext();
   const [data, setData] = useState();
 
   useEffect(() => {
@@ -30,6 +34,7 @@ function Home() {
       </Helmet>
       <main className="container">
 
+      {user && <div><Link to='/idols/new'>Create a new Idol</Link></div>}
 
         <div className="about main-card" id="about">
           <div className="card-item card-item-span-2">

@@ -28,10 +28,28 @@ export default function(sequelize, DataTypes) {
     mbti: DataTypes.STRING,
     repEmoji: DataTypes.STRING,
     portrait: DataTypes.TEXT,
-    groupPicture: DataTypes.TEXT
+    portraitUrl: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return this.assetUrl('portrait');
+      }
+    },
+    groupPicture: DataTypes.TEXT,
+    groupPictureUrl: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        return this.assetUrl('groupPicture');
+      }
+    },
   }, {
     sequelize,
     modelName: 'Idol',
   });
+
+  Idol.afterSave(async (record, options) => {
+    record.handleAssetFile('portrait', options);
+    record.handleAssetFile('groupPicture', options);
+  });
+
   return Idol;
 };
