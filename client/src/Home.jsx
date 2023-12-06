@@ -34,7 +34,7 @@ function Home() {
       </Helmet>
       <main className="container">
 
-      {user && <div><Link to='/idols/new'>Create a new Idol</Link></div>}
+      
 
         <div className="about main-card" id="about">
           <div className="card-item card-item-span-2">
@@ -57,6 +57,8 @@ function Home() {
             </p>
           </div>
         </div>
+
+        {user && <div><Link to='/idols/new'>Create a new Idol</Link></div>}
 
         <div className="popular main-card" id="popular">
           <div className="card-item card-item-span-6">

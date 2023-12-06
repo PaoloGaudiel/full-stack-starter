@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import PhotoInput from './Components/PhotoInput';
 
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 function IdolForm() {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -11,6 +14,8 @@ function IdolForm() {
         legalName: '',
         portraitUrl: '',
     });
+
+    const [isConfirmDeleteShowing, setConfirmDeleteShowing] = useState(false);
 
     useEffect(() => {
         if(id) {
@@ -50,6 +55,28 @@ function IdolForm() {
         }
     }
 
+    function showConfirmDeleteModal() {
+        setConfirmDeleteShowing(true);
+    }
+
+    function handleClose() {
+        setConfirmDeleteShowing(false);
+    }
+
+    async function onDelete() {
+        handleClose();
+        try {
+            await fetch(`/api/idols/${id}`, {
+                method: 'DELETE',
+                headers: {
+                        'Content-Type': 'application/json'
+                },
+            });
+            navigate('/');
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className="container">
@@ -84,7 +111,24 @@ function IdolForm() {
                         </div>
                     </PhotoInput>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <div className="d-flex justify-content-between">
+                    <button type="submit" className="btn btn-primary">Submit</button>
+                    <button onClick={showConfirmDeleteModal} type="button" className="btn btn-danger">Delete</button>
+                </div>
+                <Modal centered show={isConfirmDeleteShowing} onHide={handleClose}>
+                    <Modal.Header closeButton>
+                    <Modal.Title>Confirm Idol Delete</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>Are you sure you'd like to delete this idol?</Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        No
+                    </Button>
+                    <Button variant="danger" onClick={onDelete}>
+                        Confirm Delete
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
             </form>
         </div>
     );
